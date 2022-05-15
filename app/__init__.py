@@ -8,6 +8,8 @@ from flask_mail import Mail
 
 
 from config import config_options
+
+
 # Initializing extensions:
 db = SQLAlchemy()
 bcrypt = Bcrypt()
