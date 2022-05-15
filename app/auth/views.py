@@ -15,7 +15,7 @@ from . import auth
 @auth.route('/register', methods=['GET','POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
     
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -36,14 +36,14 @@ def register():
 @auth.route('/login',methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
     form=LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember = form.remember.data)
             next_page = request.args.get('next') #  when user tries to acccess restricted page
-            return redirect(next_page) if next_page else redirect(url_for('main.index')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
+            return redirect(next_page) if next_page else redirect(url_for('main.home')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
         else:
             flash('Login Failed. Kindly check your email and password then try again','danger')
     return render_template("auth/login.html",form=form,title='BlogVolution-Login')
@@ -52,7 +52,7 @@ def login():
 @auth.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.home'))
 
 
 def save_picture(form_picture): # saving image

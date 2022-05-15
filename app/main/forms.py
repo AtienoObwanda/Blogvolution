@@ -8,8 +8,8 @@ from flask_login import current_user
 
 class PostForm(FlaskForm):
     
-    title = TextAreaField('Content',validators=[DataRequired()])
+    title = TextAreaField('Post Title',validators=[DataRequired()])
 
-    content = TextAreaField('Content',validators=[DataRequired()])
+    content = TextAreaField('Post Content',validators=[DataRequired()])
 
     submit = SubmitField('Publish Post')
