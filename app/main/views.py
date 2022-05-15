@@ -5,7 +5,5 @@ from . import main
 @main.route('/')
 def index():
     name = "Time to get started "
-    # context ={
-    #     name: name
-    # }
+    
     return render_template('index.html', name=name)
