@@ -6,9 +6,13 @@ class Config:
     '''
 
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog'
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') #.replace("://", "ql://", 1)
-    SQLALCHEMY_TRACK_MODIFICATIONS= False
+    #lite:
+    # SQLAlCHEMY_DATABASE_URI = 'sqlite://site.db'
+    # For migrations
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog'
+    # for prod
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') #.replace("://", "ql://", 1)
+    # SQLALCHEMY_TRACK_MODIFICATIONS= False
 
 class ProdConfig(Config):
     '''
@@ -20,9 +24,15 @@ class DevConfig(Config):
     '''
     DevConfig --> child class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog'
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    DEBUG = True
+    # SQLAlCHEMY_DATABASE_URI = 'sqlite://site.db'
+
+    # For migrations
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog' 
+    
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+
+DEBUG = True
 
 config_options = {
 'development':DevConfig,

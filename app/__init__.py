@@ -6,6 +6,7 @@ from flask_mail import Mail
 # from flask_bootstrap import Bootstrap
 
 
+
 from config import config_options
 # Initializing extensions:
 db = SQLAlchemy()
