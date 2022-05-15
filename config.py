@@ -8,7 +8,7 @@ class Config:
     SECRET_KEY =os.environ.get('SECRET_KEY')
 
     # For migrations
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blogs'
     # for prod
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') #.replace("://", "ql://", 1)
     SQLALCHEMY_TRACK_MODIFICATIONS= False
@@ -25,7 +25,7 @@ class DevConfig(Config):
     '''
 
     # For migrations
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blog' 
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://atieno:mishi@localhost/blogs' 
     
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') #.replace("://", "ql://", 1)
 

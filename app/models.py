@@ -19,3 +19,18 @@ class User(db.Model):
 
 def __repr__(self):
     return f'User({self.username}, {self.email},{self.image})'
+
+class Post (db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    datePosted = db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+    title = db.Column(db.Text, nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    # category = db.Column(db.String(255), index = True,nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) #Id of the post author
+    posts = db.relationship('Post', backref='author',lazy=True) #defining the one to many relationship btn post and author
+
+
+
+def __repr__(self):
+    return f"User({self.content},{self.datePosted})"
