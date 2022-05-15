@@ -1,25 +1,28 @@
+from webbrowser import get
 from flask import render_template,request,redirect,url_for
 from flask import abort,request,redirect, render_template, url_for,flash
 from flask_login import login_required,current_user
 
 from .forms import PostForm
 from . import main
-from ..models import Post, User, Like
+from ..models import Post, User, Like, Comment, Quote
 from .. import db
-from . import main
+from ..requests import getPopular, getRandorm
+
 
 # Views
 @main.route('/')
 def home():
-    
-    return render_template('index.html')
+    randormQuote = getRandorm()
+
+    return render_template('index.html', randormQuote=randormQuote)
 
 
 @main.route('/quotes')
 def quotes():
-    name = "Time to get started "
-    
-    return render_template('quotes.html', name=name)
+
+    popularQuote =  getPopular()   
+    return render_template('quotes.html', popularQuote = popularQuote)
 
 
 
