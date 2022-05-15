@@ -10,10 +10,25 @@ from . import main
 
 # Views
 @main.route('/')
-def index():
+def home():
     name = "Time to get started "
     
     return render_template('index.html', name=name)
+
+
+@main.route('/quotes')
+def quotes():
+    name = "Time to get started "
+    
+    return render_template('quotes.html', name=name)
+
+@main.route('/contact')
+def contact():
+    name = "Time to get started "
+    
+    return render_template('contact.html', name=name)
+
+
 
 @main.route('/post/new',methods=['GET', 'POST'])
 @login_required
