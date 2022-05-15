@@ -15,14 +15,14 @@ def index():
     
     return render_template('index.html', name=name)
 
-@main.route('/pitch/new',methods=['GET', 'POST'])
+@main.route('/post/new',methods=['GET', 'POST'])
 @login_required
-def pitch():
+def post():
     form = PostForm()
     if form.validate_on_submit():
         post=Post(category=form.category.data, content=form.content.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('Pitch added successfully!','success')
+        flash('Post published successfully!','success')
         return redirect(url_for('main.index'))
     return render_template("post.html", form=form)
