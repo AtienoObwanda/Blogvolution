@@ -58,3 +58,8 @@ class Like(db.Model):
     author = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False) #Id of the user
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'),nullable=False)
    
+# Quotes fetched from the api
+class Quote:
+    def __init__(self, author, quote):
+        self.author = author
+        self.quote = quote
