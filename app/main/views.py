@@ -35,7 +35,7 @@ def contact():
 def post():
     form = PostForm()
     if form.validate_on_submit():
-        post=Post(category=form.category.data, content=form.content.data, author=current_user)
+        post=Post(title=form.title.data, content=form.content.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash('Post published successfully!','success')
