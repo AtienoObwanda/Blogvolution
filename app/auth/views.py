@@ -2,7 +2,7 @@ import os
 from flask import abort,request,redirect, render_template, url_for,flash
 from flask_login import login_user,current_user, logout_user, login_required
 import secrets
-# from PIL import Image
+from PIL import Image
 
 # from ..sendMail import mail_message
 from .. import db,bcrypt
