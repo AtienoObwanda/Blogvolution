@@ -8,7 +8,7 @@ from flask_login import current_user
 
 class PostForm(FlaskForm):
     
-    title = TextAreaField('Post Title',validators=[DataRequired()])
+    title = StringField('Post Title',validators=[DataRequired()])
 
     content = TextAreaField('Post Content',validators=[DataRequired()])
 

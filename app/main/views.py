@@ -4,16 +4,15 @@ from flask_login import login_required,current_user
 
 from .forms import PostForm
 from . import main
-from ..models import Post
+from ..models import Post, User, Like
 from .. import db
 from . import main
 
 # Views
 @main.route('/')
 def home():
-    name = "Time to get started "
     
-    return render_template('index.html', name=name)
+    return render_template('index.html')
 
 
 @main.route('/quotes')
@@ -21,6 +20,14 @@ def quotes():
     name = "Time to get started "
     
     return render_template('quotes.html', name=name)
+
+
+
+@main.route('/all/posts')
+def blog():
+    name = "Time to get started "
+    
+    return render_template('blog.html', name=name)
 
 @main.route('/contact')
 def contact():
@@ -39,5 +46,23 @@ def post():
         db.session.add(post)
         db.session.commit()
         flash('Post published successfully!','success')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
     return render_template("post.html", form=form)
+
+
+@main.route('/like/<post_id>/',methods = ['GET'])
+@login_required
+def like(post_id):
+    post = Post.query.filter_by(id=post_id)
+    like = Like.query.filter_by(author= current_user.id, post_id=post_id).first()
+
+    if not post:
+        flash('Post not found',category='error')
+    elif like:
+        return redirect(url_for('main.index', post_id=post_id))
+    else:
+        like= Like(author=current_user.id, post_id=post_id)
+        db.session.add(like)
+        db.session.commit()
+
+    return redirect(url_for('main.blog'))
