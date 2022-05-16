@@ -5,30 +5,18 @@
     <div class="row">
         <div class="col-md-8">
             {% for post in posts %}
-            <article class="media content-section"
-                style="border:none;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 5px;">
-                <div class="row mb-2">
-                    <div class="col">
-                        <img class="rounded-circle" article-img
-                            src="{{ url_for('static', filename='profile/' + post.author.image) }}">
-                    </div>
-                    <div class="col">
-                        <p class="mr-2 mt-4 pt-4">{{ post.author.username }}</p>
-                    </div>
-                </div>
-
+            <article class="media content-section"  style="border:none;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;border-radius: 5px;">
+                <img class="rounded-circle" article-img
+                src="{{ url_for('static', filename='profile/' + post.author.image) }}">
                 <div class="media-body">
-                    <div class="article-metadata">
-                        <p class="article-content"> {{ post.title }} </p>
-                    </div>
-
-                    <p class="article-content"> <span style="color: #fea150">"</span> {{ post.content }} <span
-                            style="color: #fea150">"</span> </p>
-                </div>
-
-                <div class="media-footer">
-                    <a class="ms-5" style="text-decoration: none;"></a>
-                    <a class="ms-5" style="text-decoration: none;" href="{{ url_for('main.like', post_id=post.id) }}">
+                  <div class="article-metadata">
+                    <a class="mr-2">{{ post.author.username }}</a>
+                    <small class="text-muted"><span style="color: #DB8CF6"> {{ post.datePosted.strftime('%Y-%m-%d') }} </span></small>
+                  </div>
+                  <h2><a class="article-title" href="{{ url_for('main.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                  <p class="article-content">{{ post.content }}</p>
+                <br/>
+                    <a class="ms-5 mr-5" style="text-decoration: none;" href="{{ url_for('main.like', post_id=post.id) }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#DB8CF6"
                             class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
                             <path
@@ -36,8 +24,8 @@
                         </svg>
                         <span style="color:#000"> {{ post.likes.count()}} </span>
                     </a>
-
-                    <a class="ms-5" style="text-decoration: none;"
+                                                                                                         
+                    <a class="ms-5 mr-5" style="text-decoration: none;"
                         href="{{ url_for('main.comment', post_id=post.id) }}">
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#DB8CF6" class="bi bi-chat"
@@ -47,13 +35,7 @@
                         </svg>
                         <span style="color:#000"> {{post.comment.count()}} </span>
                     </a>
-                    </br>
-                    <div class="pt-2 mb-2">
-                        <small class="ms-4 text-muted align-left">Posted On: <span style="color: #DB8CF6">{{
-                                post.datePosted.strftime('%Y-%m-%d') }}</span></small>
-                        <span> | </span>
 
-                    </div>
                 </div>
             </article>
             {% endfor %}
