@@ -8,7 +8,7 @@
 *BlogVolution is a web application that allows users to add posts, update, delete and comment on various posts.*
 <br />
 
-<!-- **Live link:**  *https://posth.herokuapp.com/* <br /> -->
+**Live link:**  *https://blogvolution.herokuapp.com/* <br />
 
 
 **Setup/Installation Requirements** 

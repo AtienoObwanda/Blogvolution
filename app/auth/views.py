@@ -4,7 +4,7 @@ from flask_login import login_user,current_user, logout_user, login_required
 import secrets
 from PIL import Image
 
-# from ..sendMail import mail_message
+from ..sendMail import mail_message
 from .. import db,bcrypt
 from .form import RegistrationForm, LoginForm,UpdateAccountForm
 from ..models import User,Post
@@ -25,7 +25,7 @@ def register():
         db.session.add(user) # add user
         db.session.commit() # commit session
         
-        # mail_message("You have successfully signed up for a BlogVolution Splash account","email/welcome_user",user.email, user = user)
+        mail_message("You have successfully signed up for a BlogVolution Splash account","email/welcome_user",user.email, user = user)
 
         flash(f'Account created successfully for {form.username.data}!', 'success')
         return redirect(url_for('auth.login'))

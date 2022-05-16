@@ -1,0 +1,8 @@
+Dear {{user.username}} ,
+
+Welcome to BlogVolution!
+
+You have successfully joined the BlogVolution community. 
+
+You can now login, create post,  and comment on other posts!
+
