@@ -3,10 +3,10 @@
     <div class="content-section login">
         <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-6">
                 <img src="{{ url_for('static', filename='login.png') }}" style="width: 100%; height:100%"/>
             </div>
-            <div class="col">
+            <div class="col-md-6">
                 <form method="POST" action="">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
@@ -44,25 +44,18 @@
                     </fieldset>
                     <div class="form-group">
                         <div class="row">
-                           
                             <div class="col">
                                 {{ form.submit(class="btn btn-outline-info button-17") }}
                             </div>
                         </div>
-                    
-                </form>
-            </div>
-                <div class="row pt-3">
-                    <div class="col"></div>
-                    <div class="col">
-                        <div class="">
-                            <small class="text-muted text-center">
-                                Need An Account? <a class="ml-2" href="{{ url_for('auth.register') }}" style="text-decoration: none;color:#DB8CF6">Get Started</a>
-                            </small>
-                        </div>
-                    </div>
-                    <div class="col"></div>
+                    </form>
                 </div>
+                <br/>
+                <br/>
+                <small class="text-muted text-center">
+                Need An Account? <a class="ml-2" href="{{ url_for('auth.register') }}" style="text-decoration: none;color:#DB8CF6">Get Started</a>
+                </small>
+            </div>
             </div>
         </div>
     </div>
