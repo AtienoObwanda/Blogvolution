@@ -4,6 +4,22 @@
 <!-- Content block -->
 {% block content %}
 
-<h1>BlogVolution</h1>
+<div class="col-sm-12">
+    <div class="cards">
+        <div class="card">
+            <div class="card-body" >
+            <blockquote class="blockquote mb-0 card-body">
+                <p>{{randormQuote.quote}}</p>
+                <footer class="blockquote-footer">
+                    <cite title="Source Title" style="color: black;" >{{randormQuote.author| capitalize}}</cite>
+                    
+                </footer>
+                
+              </blockquote>
+            </div>
+            
+
+    </div>
+</div>
 
 {% endblock%}

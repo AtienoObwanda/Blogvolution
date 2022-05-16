@@ -7,7 +7,7 @@ from .forms import PostForm
 from . import main
 from ..models import Post, User, Like, Comment, Quote
 from .. import db
-from ..requests import getPopular, getRandorm
+from ..requests import getRandorm #getPopular
 
 
 # Views
@@ -21,8 +21,8 @@ def home():
 @main.route('/quotes')
 def quotes():
 
-    popularQuote =  getPopular()   
-    return render_template('quotes.html', popularQuote = popularQuote)
+    # popularQuote =  getPopular()   
+    return render_template('quotes.html')
 
 
 

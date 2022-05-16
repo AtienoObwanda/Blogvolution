@@ -3,7 +3,26 @@
 
 <!-- Content block -->
 {% block content %}
+{% for popularQuote in popularQuote %}
 
-<h1>BlogVolution</h1>
+<div class="col-sm-12">
+    <div class="cards">
+        <div class="card">
+            <div class="card-body" >
+            <blockquote class="blockquote mb-0 card-body">
+                <p>{{popularQuote.quote}}</p>
+                <footer class="blockquote-footer">
+                    <cite title="Source Title" style="color: black;" >{{popularQuote.author| capitalize}}</cite>
+                    
+                </footer>
+                
+              </blockquote>
+            </div>
+            
+
+    </div>
+</div>
+
+{% endfor %}
 
 {% endblock%}
