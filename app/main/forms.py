@@ -13,3 +13,7 @@ class PostForm(FlaskForm):
     content = TextAreaField('Post Content',validators=[DataRequired()])
 
     submit = SubmitField('Publish Post')
+
+class CommentForm(FlaskForm):
+    comment = StringField('Comment')
+    submit = SubmitField('Comment')
