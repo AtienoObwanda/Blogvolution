@@ -66,13 +66,14 @@
                 <h3 class="text-center" style="font-family: Inika;">Join Our Mailing List</h3>
                 <div class="col-md-4">
     
-                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" style="margin-bottom: 20px">
+                    <form class="form-inline ml-2" action="{{url_for('main.post')}}" method="POST" style="margin-bottom: 20px">
                       <div class="md-form form-group">
-                        <label class="white-color">Email Address...</label><br>
+                        <!-- <label class="white-color">Email Address...</label><br> -->
                         <input type="email" class="form-control " name="subscriber" required>
-                      </div><br><br>
+                      </div> 
+                      <br/>
+                      <button class="center button-17" id="subs">Join</button>
                       <div class="md-form form-group">
-                        <button class="btn btn-info" id="subs">Subscribe</button>
                       </div>
                     </form>
                 </div>

@@ -87,7 +87,19 @@
             </div>
             <div class="content-section mb-2 mt-1" style="height: 260px; background: rgba(219, 140, 246, 0.12); border-radius: 15px;">
                 <h3 class="text-center" style="font-family: Inika;">Join Our Mailing List</h3>
-
+                <div class="col-md-4">
+    
+                    <form class="form-inline ml-2" action="{{url_for('main.post')}}" method="POST" style="margin-bottom: 20px">
+                      <div class="md-form form-group">
+                        <!-- <label class="white-color">Email Address...</label><br> -->
+                        <input type="email" class="form-control " name="subscriber" required>
+                      </div> 
+                      <br/>
+                      <button class="center button-17" id="subs">Join</button>
+                      <div class="md-form form-group">
+                      </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

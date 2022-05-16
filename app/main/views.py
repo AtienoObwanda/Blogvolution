@@ -5,7 +5,7 @@ from flask_login import login_required,current_user
 
 from .forms import PostForm,CommentForm
 from . import main
-from ..models import Post, User, Like, Comment, Quote
+from ..models import Post, User, Like, Comment, Quote, Subscription
 from .. import db
 from ..requests import getRandorm #getPopular
 
@@ -133,3 +133,6 @@ def updatePost(post_id):
     return render_template('post.html', title='Update Post',
                            form=form, legend='Update Post')
 
+# @main.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
+# @login_required
+# def subscribe
