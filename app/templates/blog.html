@@ -35,7 +35,7 @@
                         </svg>
                         <span style="color:#000"> {{post.comment.count()}} </span>
                     </a>
-                    {% ifcurrent_user.id == post.author.id %}
+                    {% if current_user.id == post.author.id %}
                         <a
                           style="text-decoration: none"
                           href="{{ url_for('main.deletePost', post_id=post.id) }}"
@@ -53,7 +53,7 @@
                             />
                           </svg>
                         </a>
-                        {% endif %}
+                    {% endif %}
 
                 </div>
             </article>

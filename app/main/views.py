@@ -93,25 +93,17 @@ def comment(post_id):
 
 def deleteComment(comment_id):
     comment = Comment.query.filter(Comment.id == comment_id).first()
-    # if not comment:
-    #     flash('Comment not found', category='error')
-    # elif current_user.id != comment.user.id and  current_user.id != post.author.id:
-    #     flash('You are not authorized to delete this comment', category='error')
-    # else:
+
     db.session.delete(comment)
     db.session.commit()
+    flash('Your comment has been deleted!', 'success')
     return redirect(url_for('main.blog'))
 
-@main.route('/delete/post/<post_id>')
+@main.route('/delete/post/<int:post_id>',methods=['POST'])
 @login_required
 def deletePost(post_id):
-    post = Post.query.filter(post.id == post_id).first()
-
-    # if not post:
-    #     flash('post not found', category='error')
-    # elif  current_user.id != post.author.id:
-    #     flash('You are not authorized to delete this post', category='error')
-    # else:
+    post = Post.query.filter(Post.id == post_id).first()
     db.session.delete(post)
     db.session.commit()
+    flash('Your post has been deleted!', 'success')
     return redirect(url_for('main.blog'))
