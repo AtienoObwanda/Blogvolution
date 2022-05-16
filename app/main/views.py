@@ -18,19 +18,19 @@ def home():
     return render_template('index.html', randormQuote=randormQuote)
 
 
-@main.route('/quotes')
-def quotes():
+# @main.route('/quotes')
+# def quotes():
 
-    # popularQuote =  getPopular()   
-    return render_template('quotes.html')
+#     # popularQuote =  getPopular()   
+#     return render_template('quotes.html')
 
 
 
 @main.route('/all/posts')
 def blog():
-    name = "Time to get started "
-    
-    return render_template('blog.html', name=name)
+    posts = Post.query.all()
+
+    return render_template('blog.html', posts=posts)
 
 @main.route('/contact')
 def contact():

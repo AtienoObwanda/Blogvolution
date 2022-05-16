@@ -4,7 +4,7 @@ from .models import Quote
 # get randorm Quote
 randormUrl = "http://quotes.stormconsultancy.co.uk/random.json"
 def getRandorm():
-    with urllib.request.urlopen('randormUrl') as url:
+    with urllib.request.urlopen(randormUrl) as url:
         quote_details_data = url.read()
         quote_details_response = json.loads(quote_details_data)
         quote_object = None
