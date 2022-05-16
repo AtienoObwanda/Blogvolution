@@ -49,7 +49,7 @@ def post():
         db.session.add(post)
         db.session.commit()
         flash('Post published successfully!','success')
-        return redirect(url_for('main.home'))
+        return redirect(url_for('main.blog'))
     return render_template("post.html", form=form)
 
 
@@ -62,7 +62,7 @@ def like(post_id):
     if not post:
         flash('Post not found',category='error')
     elif like:
-        return redirect(url_for('main.index', post_id=post_id))
+        return redirect(url_for('main.home', post_id=post_id))
     else:
         like= Like(author=current_user.id, post_id=post_id)
         db.session.add(like)
@@ -86,3 +86,33 @@ def comment(post_id):
         return redirect(url_for('main.comment',post_id=post_id))
 
     return render_template("comment.html",post=post, title='React to post!', form = form,allComments=allComments)
+
+# Delete comment
+@main.route('/delete/comment/<comment_id>')
+@login_required
+
+def deleteComment(comment_id):
+    comment = Comment.query.filter(Comment.id == comment_id).first()
+    post = Post.query.filter(post.id).first()
+    if not comment:
+        flash('Comment not found', category='error')
+    elif current_user.id != comment.user.id and  current_user.id != post.author.id:
+        flash('You are not authorized to delete this comment', category='error')
+    else:
+        db.session.delete(comment)
+        db.session.commit()
+    return redirect(url_for('main.blog'))
+
+@main.route('/delete/post/<post_id>')
+@login_required
+def deletepost(post_id):
+    post = Post.query.filter(post.id == post_id).first()
+
+    if not post:
+        flash('post not found', category='error')
+    elif  current_user.id != post.author.id:
+        flash('You are not authorized to delete this post', category='error')
+    else:
+        db.session.delete(post)
+        db.session.commit()
+    return redirect(url_for('main.blog'))
