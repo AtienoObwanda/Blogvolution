@@ -15,17 +15,17 @@ def getRandorm():
             quote_object = Quote(author, quote)
             return quote_object
 
-# get new quotes
+# get popular quotes
 
-# popularUrl = "http://quotes.stormconsultancy.co.uk/popular.json"
-# def getPopular():
-#      with urllib.request.urlopen('http://quotes.stormconsultancy.co.uk/popular.json') as url:
-#         quote_details_data = url.read()
-#         quote_details_response = json.loads(quote_details_data)
-#         pquote_object = None
+popularUrl = "http://quotes.stormconsultancy.co.uk/popular.json"
+def getPopular():
+     with urllib.request.urlopen('popularUrl') as url:
+        quote_details_data = url.read()
+        quote_details_response = json.loads(quote_details_data)
+        pquote_object = None
 
-#         if quote_details_response:
-#             author = quote_details_response.get('author')
-#             quote = quote_details_response.get('quote')
-#             pquote_object = Quote(author, quote)
-#             return pquote_object
+        if quote_details_response:
+            author = quote_details_response.get('author')
+            quote = quote_details_response.get('quote')
+            pquote_object = Quote(author, quote)
+            return pquote_object
