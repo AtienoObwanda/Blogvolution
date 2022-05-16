@@ -7,8 +7,8 @@
     <img src="{{ url_for('static', filename='images/img.png') }}" style="width: 100%; height:100%" />
 </div>
 <div class="container">
-    <h1 class="text-center" style="font-family: Inika;font-size: 40px;font-weight: 700;line-height: 52px;letter-spacing: 0em;text-align: left;
-    ">POPULAR IN BLOG-VOLUTION</h1>
+    <h1 class="text-center mb-2 mt-2" style="font-family: Inika;font-size: 30px;font-weight: 700;line-height: 52px;letter-spacing: 0em;text-align: left;
+    ">BLOG-VOLUTION QUICK READ</h1>
     <div class="row">
       
         <div class="col-md-8">
@@ -30,30 +30,42 @@
                 </div>
             </div>
 <!--ADD BLOG-->
-<div class="card" style="background: #FFFFFF;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);border-radius: 3px; margin-bottom: 2em; margin-top: 1em;">
+<div class="card" style="background: #FFFFFF;box-shadow: 0px 4px 4px rgba(219, 140, 246, 0.3);border-radius: 8px; margin-bottom: 2em; margin-top: 1em;">
     <div class="card-title">
-
+        <h3 class="pt-2 mt-3" style="font-family: Inika;font-size: 20px;font-weight: 700;line-height: 32px;letter-spacing: 0em;text-align: center;">The computer "bug" was named after a literal bug found in a computer.</h3>
     </div>
     <div class="card-image">
         <img src="{{ url_for('static', filename='images/blog.png') }}" style="width: 100%; height:80%" />
     </div>
     <div class="card-body text-center">
-        <small class="muted-text" style="color:#DB8CF6">READ MORE</small>
+        <p>In 1947, computer pioneer Grace Hopper found herself working on a Mark II Computer at Harvard University. It was at this time that her associates discovered a moth had gotten trapped in one of the computer's relays and was causing an error. The operators removed the moth and taped it in their log book, identifying it as the "first actual case of bug being found."
+
+            Word got out that the team had "debugged" the computer, hence leading to the phrase's use in computing and pop culture. Hopper readily admitted that she was not there when the incident occurred, but that didn't stop it from becoming one of her favorite stories. Hopper died of natural causes on January 1, 1992, at the age of 85. For those interested, the offending moth's remains, along with the original log book, can be seen at the Smithsonian National Museum of American History in Washington, D.C.
+            
+            And while this is the "modern" use case of finding a computer bug, the original use of the word dates further back in time to Thomas Edison, who in an 1878 letter used the term "bug" to refer to a technological glitch. While he worked on the quadruplex telegraph, he said it needed a "bug trap" to function properly.</p>
+        <small class="text-muted text-center" style="font-family: Inika; text-align: center">Published by: <a href="https://www.techspot.com/" style="text-decoration: none;color: #DB8CF6">Techspot</a></small> | <small class="text-muted text-center" style="font-family: Inika; text-align: center; color: #DB8CF6">Published on: 16/05/2022 </small> 
     </div>
 
 </div>
         </div>
-        <div class="col-md-4" style="background: #FFFFFF;box-shadow: 0px 4px 4px rgba(219, 140, 246, 0.3);border-radius: 2px; margin-bottom: 2em; margin-top: 1em;">
-            <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>You can put any information here you'd like.
+        <div class="col-md-4" style="height:700px;background: #FFFFFF;box-shadow: 0px 4px 4px rgba(219, 140, 246, 0.3);border-radius: 2px; margin-bottom: 2em; margin-top: 1em;">
+            <div class="content-section" style="height: 420px; background: rgba(219, 140, 246, 0.12);">
+                <h3 class="text-center" style="font-family: Inika;">Our Sidebar</h3>
+                <p class='text-muted'>
+                    <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/read.png') }}" style="width: 100%; height:80%" />
+                    </div>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('main.blog') }}">View All Posts</a></li>
+                    <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('auth.login') }}">New Post</a></li>
+                    <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('auth.register') }}">Get Started</a></li>
+                    <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('main.contact') }}">Get In Touch</a></li>
                 </ul>
                 </p>
+            </div>
+            <div class="content-section" style="height: 260px; background: rgba(219, 140, 246, 0.12);">
+                <h3 class="text-center" style="font-family: Inika;">Join Our Mailing List</h3>
+
             </div>
         </div>
     </div>
