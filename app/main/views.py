@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for
 from flask import abort,request,redirect, render_template, url_for,flash
 from flask_login import login_required,current_user
 
-from .forms import PostForm
+from .forms import PostForm,CommentForm
 from . import main
 from ..models import Post, User, Like, Comment, Quote
 from .. import db
@@ -69,3 +69,20 @@ def like(post_id):
         db.session.commit()
 
     return redirect(url_for('main.blog'))
+
+@main.route('/comment/<int:post_id>',methods = ['POST','GET'])
+@login_required
+def comment(post_id):
+    post=Post.query.get_or_404(post_id)
+    form = CommentForm()
+    allComments = Comment.query.filter_by(post_id = post_id).all()
+    if form.validate_on_submit():
+        postedComment = Comment(comment=form.comment.data,user_id = current_user.id, post_id = post_id)
+        post_id = post_id
+        db.session.add(postedComment)
+        db.session.commit()
+        flash('Comment added successfully')
+        
+        return redirect(url_for('main.comment',post_id=post_id))
+
+    return render_template("comment.html",post=post, title='React to post!', form = form,allComments=allComments)
