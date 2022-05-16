@@ -10,10 +10,10 @@
                 src="{{ url_for('static', filename='profile/' + post.author.image) }}">
                 <div class="media-body">
                   <div class="article-metadata">
-                    <a class="mr-2">{{ post.author.username }}</a>
+                    <a class="mr-2" style="color:#000">{{ post.author.username }}</a>
                     <small class="text-muted"><span style="color: #DB8CF6"> {{ post.datePosted.strftime('%Y-%m-%d') }} </span></small>
                   </div>
-                  <h2><a class="article-title" href="{{ url_for('main.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                  <h2><a class="article-title" href="{{ url_for('main.post', post_id=post.id) }}" style="font-size:20px;">{{ post.title }}</a></h2>
                   <p class="article-content">{{ post.content }}</p>
                 <br/>
                     <a class="ms-5 mr-5" style="text-decoration: none;" href="{{ url_for('main.like', post_id=post.id) }}">
