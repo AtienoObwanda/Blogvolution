@@ -45,9 +45,8 @@
             And while this is the "modern" use case of finding a computer bug, the original use of the word dates further back in time to Thomas Edison, who in an 1878 letter used the term "bug" to refer to a technological glitch. While he worked on the quadruplex telegraph, he said it needed a "bug trap" to function properly.</p>
         <small class="text-muted text-center" style="font-family: Inika; text-align: center">Published by: <a href="https://www.techspot.com/" style="text-decoration: none;color: #DB8CF6">Techspot</a></small> | <small class="text-muted text-center" style="font-family: Inika; text-align: center; color: #DB8CF6">Published on: 16/05/2022 </small> 
     </div>
-
 </div>
-        </div>
+</div>
         <div class="col-md-4" style="height:700px;background: #FFFFFF;box-shadow: 0px 4px 4px rgba(219, 140, 246, 0.3);border-radius: 20px; margin-bottom: 2em; margin-top: 1em;">
             <div class="content-section mb-2 mt-1" style="height: 420px; background: rgba(219, 140, 246, 0.12);border-radius:15px">
                 <h3 class="text-center" style="font-family: Inika;">Reader's Choice</h3>
@@ -59,12 +58,24 @@
                     <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('main.blog') }}">View All Posts</a></li>
                     <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('auth.login') }}">New Post</a></li>
                     <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('auth.register') }}">Get Started</a></li>
-                    <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('main.contact') }}">Get In Touch</a></li>
+                    <!-- <li class="list-group-item list-group-item-light"><a style="text-decoration:none; color:#DB8CF6"  href="{{ url_for('main.contact') }}">Get In Touch</a></li> -->
                 </ul>
                 </p>
             </div>
             <div class="content-section mb-2 mt-1" style="height: 260px; background: rgba(219, 140, 246, 0.12); border-radius: 15px;">
                 <h3 class="text-center" style="font-family: Inika;">Join Our Mailing List</h3>
+                <div class="col-md-4">
+    
+                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST" style="margin-bottom: 20px">
+                      <div class="md-form form-group">
+                        <label class="white-color">Email Address...</label><br>
+                        <input type="email" class="form-control " name="subscriber" required>
+                      </div><br><br>
+                      <div class="md-form form-group">
+                        <button class="btn btn-info" id="subs">Subscribe</button>
+                      </div>
+                    </form>
+                </div>
 
             </div>
         </div>
