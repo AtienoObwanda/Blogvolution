@@ -5,10 +5,7 @@
 ****
 **Description:**
 ****
-*BlogVolution is a web application that allows users to use that one minute wisely. The users will submit their one minute post and other users will vote on them and leave comments to give their feedback on them.*
-
- *The post are organized by category. It has categories like: General post,Career post, and Fun post* 
- *Whatever comes to your mind,* **Just post it!**
+*BlogVolution is a web application that allows users to add posts, update, delete and comment on various posts.*
 <br />
 
 <!-- **Live link:**  *https://posth.herokuapp.com/* <br /> -->
@@ -61,10 +58,9 @@ atom .
 
 * Comment on the different posts posted py other users. <br/>
 * See the post posted by other users. <br/>
-* Vote on s post they have viwed by giving it a upvote or a downvote. <br/>
+* Like posts. <br/>
 * Register to be allowed to log in to the application <br/>
-* View post from the different categories. <br/>
-* Submit a post to a specific category of their choice. <br/>
+* View post from the different users. <br/>
 
 **BDD** <br/>
 ****
