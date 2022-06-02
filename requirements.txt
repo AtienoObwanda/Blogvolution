@@ -29,7 +29,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 Mako==1.2.0
 MarkupSafe==2.0.1
-Pillow==9.1.0
+Pillow==9.1.1
 psycopg2==2.9.3
 pycparser==2.21
 requests==2.27.1
